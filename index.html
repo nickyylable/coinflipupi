@@ -42,6 +42,7 @@
         left: 50%;
         top: 60%;
         transform: translateX(-50%);
+        touch-action: manipulation;
     }
 
     #flipButton:hover {
@@ -54,6 +55,11 @@
         box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset; /* Сжатие теней при нажатии */
         transform: translateX(-50%) translateY(1px); /* Уменьшенное смещение при нажатии */
     }
+    #flipButton:focus {
+        box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset;
+        transform: translateX(-50%) translateY(1px);
+    }
+
 
 
 
