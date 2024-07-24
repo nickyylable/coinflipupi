@@ -317,41 +317,55 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-        const flipSound = new Audio('flip.mp3'); // Path to your sound file
+    const flipButton = document.getElementById("flipButton");
+    const flipSound = new Audio('flip.mp3');
 
-        document.getElementById("flipButton").addEventListener("click", () => {
-            if (coin) {
-                document.getElementById('pl-sound').play();
-                document.getElementById("resultText").style.display = 'none';
-                spinning = false;
-                coin.rotation.set(0, 0, 0);
-
-                const upAndDownTween = new TWEEN.Tween(coin.position)
-                    .to({ y: [50, 13] }, 2000)
-                    .easing(TWEEN.Easing.Quadratic.InOut);
-
-                const rotationTween = new TWEEN.Tween(coin.rotation)
-                    .to({ y: coin.rotation.y + Math.PI * 10 }, 2000)
-                    .easing(TWEEN.Easing.Quadratic.InOut)
-                    .onComplete(() => {
-                        const result = Math.random() < 0.5 ? "Орел" : "Решка";
-                        const resultText = document.getElementById("resultText");
-                        resultText.textContent = result;
-                        resultText.style.display = 'block';
-                        resultText.style.left = result === "Орел" ? '34%' : '30%'; // Adjusted for dynamic placement
-                        resultText.classList.add("fadeInScaleUp");
-                    });
-
-                // Delay sound playback by 1 second
-                setTimeout(() => {
-                    flipSound.play();
-                }, 800);
-
-                upAndDownTween.start();
-                rotationTween.start();
-            }
-        });
+    flipButton.addEventListener("click", () => {
+        executeFlip();
     });
+
+    flipButton.addEventListener("touchstart", (e) => {
+        e.preventDefault(); // Предотвратить стандартное поведение для touch (скроллинг и т.д.)
+        flipButton.classList.add("active");
+    });
+
+    flipButton.addEventListener("touchend", (e) => {
+        flipButton.classList.remove("active");
+        executeFlip(); // Вызов функции при завершении касания
+    });
+
+    function executeFlip() {
+        if (coin) {
+            document.getElementById('pl-sound').play();
+            document.getElementById("resultText").style.display = 'none';
+            spinning = false;
+            coin.rotation.set(0, 0, 0);
+
+            const upAndDownTween = new TWEEN.Tween(coin.position)
+                .to({ y: [50, 13] }, 2000)
+                .easing(TWEEN.Easing.Quadratic.InOut);
+
+            const rotationTween = new TWEEN.Tween(coin.rotation)
+                .to({ y: coin.rotation.y + Math.PI * 10 }, 2000)
+                .easing(TWEEN.Easing.Quadratic.InOut)
+                .onComplete(() => {
+                    const result = Math.random() < 0.5 ? "Орел" : "Решка";
+                    const resultText = document.getElementById("resultText");
+                    resultText.textContent = result;
+                    resultText.style.display = 'block';
+                    resultText.style.left = result === "Орел" ? '34%' : '30%';
+                    resultText.classList.add("fadeInScaleUp");
+                });
+
+            setTimeout(() => {
+                flipSound.play();
+            }, 800);
+
+            upAndDownTween.start();
+            rotationTween.start();
+        }
+    }
+});
 
         window.addEventListener("resize", function () {
             camera.aspect = window.innerWidth / window.innerHeight;
