@@ -51,10 +51,11 @@
         transform: translateX(-50%) translateY(-5px); /* Увеличенный подъем кнопки при наведении */
     }
 
-    #flipButton:active {
+       #flipButton.active {
         box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset; /* Сжатие теней при нажатии */
         transform: translateX(-50%) translateY(1px); /* Уменьшенное смещение при нажатии */
     }
+
     #flipButton:focus {
         box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset;
         transform: translateX(-50%) translateY(1px);
@@ -393,6 +394,21 @@
         }
 
         document.addEventListener('DOMContentLoaded', startRandomNotification);
+        document.addEventListener("DOMContentLoaded", function() {
+        var flipButton = document.getElementById("flipButton");
+    
+        // Добавить класс 'active' при начале касания
+        flipButton.addEventListener("touchstart", function(e) {
+            e.preventDefault(); // Предотвратить любое другое действие по умолчанию
+            this.classList.add("active");
+        });
+    
+        // Удалить класс 'active' при окончании касания
+        flipButton.addEventListener("touchend", function(e) {
+            this.classList.remove("active");
+        });
+    });
+
     </script>
 </body>
 </html> """
