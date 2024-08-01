@@ -220,41 +220,41 @@
             top: 10%; /* Целевая позиция в пределах видимости */
         }
         #returnButton {
-    font-size: 40px;
-    font-weight: bold;
-    padding: 30px 60px;
-    width: 325px;
-    border-radius: 25px;
-    background: linear-gradient(145deg, #8a2be2 0%, #9370db 100%);
-    box-shadow: 0 10px #6a0dad, 0 -10px #9370db inset; /* Увеличение высоты тени для более сильного 3D-эффекта */
-    color: white;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    outline: none;
-    font-family: 'Intro', sans-serif;
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 70%; /* Позиция ниже кнопки "БРОСИТЬ" */
-    transform: translateX(-50%);
-    touch-action: manipulation;
-}
-
-#returnButton:hover {
-    background: linear-gradient(145deg, #9370db 0%, #8a2be2 100%);
-    box-shadow: 0 12px #6a0dad, 0 -12px #8a2be2 inset; /* Углубленная тень при наведении для более выраженного 3D-эффекта */
-    transform: translateX(-50%) translateY(-5px); /* Увеличенный подъем кнопки при наведении */
-}
-
-#returnButton.active {
-    box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset; /* Сжатие теней при нажатии */
-    transform: translateX(-50%) translateY(1px); /* Уменьшенное смещение при нажатии */
-}
-
-#returnButton:focus {
-    box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset;
-    transform: translateX(-50%) translateY(1px);
-}
+            font-size: 40px;
+            font-weight: bold;
+            padding: 30px 60px;
+            width: 325px;
+            border-radius: 25px;
+            background: linear-gradient(145deg, #8a2be2 0%, #9370db 100%);
+            box-shadow: 0 10px #6a0dad, 0 -10px #9370db inset; /* Увеличение высоты тени для более сильного 3D-эффекта */
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            font-family: 'Intro', sans-serif;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 70%; /* Позиция ниже кнопки "БРОСИТЬ" */
+            transform: translateX(-50%);
+            touch-action: manipulation;
+        }
+        
+        #returnButton:hover {
+            background: linear-gradient(145deg, #9370db 0%, #8a2be2 100%);
+            box-shadow: 0 12px #6a0dad, 0 -12px #8a2be2 inset; /* Углубленная тень при наведении для более выраженного 3D-эффекта */
+            transform: translateX(-50%) translateY(-5px); /* Увеличенный подъем кнопки при наведении */
+        }
+        
+        #returnButton.active {
+            box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset; /* Сжатие теней при нажатии */
+            transform: translateX(-50%) translateY(1px); /* Уменьшенное смещение при нажатии */
+        }
+        
+        #returnButton:focus {
+            box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset;
+            transform: translateX(-50%) translateY(1px);
+        }
 
     </style>
 </head>
@@ -276,6 +276,7 @@
     <div id="container3D"></div>
     <button id="flipButton">БРОСИТЬ</button>
     <button id="returnButton" onclick="location.href='https://your-url.com'">Вернуться</button>
+
     <div id="resultText"></div>
     <div id="nsgocio-container">
     <img src="tg.svg" alt="Telegram Icon" id="tg-icon">
