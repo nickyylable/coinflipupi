@@ -239,18 +239,18 @@
             transform: translateX(-50%);
             touch-action: manipulation;
         }
-        
+
         #returnButton:hover {
             background: linear-gradient(145deg, #9370db 0%, #8a2be2 100%);
             box-shadow: 0 12px #6a0dad, 0 -12px #8a2be2 inset; /* Углубленная тень при наведении для более выраженного 3D-эффекта */
             transform: translateX(-50%) translateY(-5px); /* Увеличенный подъем кнопки при наведении */
         }
-        
+
         #returnButton.active {
             box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset; /* Сжатие теней при нажатии */
             transform: translateX(-50%) translateY(1px); /* Уменьшенное смещение при нажатии */
         }
-        
+
         #returnButton:focus {
             box-shadow: 0 5px #6a0dad, 0 -5px #9370db inset;
             transform: translateX(-50%) translateY(1px);
@@ -352,7 +352,7 @@
 
         document.addEventListener("DOMContentLoaded", () => {
     const flipButton = document.getElementById("flipButton");
-    const returnButton = document.getElementById("returnButton");    
+    const returnButton = document.getElementById("returnButton");
     const flipSound = new Audio('flip.mp3');
 
     flipButton.addEventListener("click", () => {
@@ -368,7 +368,7 @@
         flipButton.classList.remove("active");
         executeFlip(); // Вызов функции при завершении касания
     });
-    
+
     returnButton.addEventListener("touchstart", (e) => {
         e.preventDefault(); // Предотвратить стандартное поведение для touch (скроллинг и т.д.)
         returnButton.classList.add("active");
@@ -376,8 +376,8 @@
 
     returnButton.addEventListener("touchend", (e) => {
         returnButton.classList.remove("active");
-        location.href = 'https://your-url.com'; // Вызов функции при завершении касания
-    });        
+        location.href = 'https://nickyylable.github.io/lasthere/'; // Вызов функции при завершении касания
+    });
 
     function executeFlip() {
         if (coin) {
@@ -455,13 +455,13 @@
         document.addEventListener('DOMContentLoaded', startRandomNotification);
         document.addEventListener("DOMContentLoaded", function() {
         var flipButton = document.getElementById("flipButton");
-    
+
         // Добавить класс 'active' при начале касания
         flipButton.addEventListener("touchstart", function(e) {
             e.preventDefault(); // Предотвратить любое другое действие по умолчанию
             this.classList.add("active");
         });
-    
+
         // Удалить класс 'active' при окончании касания
         flipButton.addEventListener("touchend", function(e) {
             this.classList.remove("active");
